@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: java-sample-k8s
+  name: java-sample-k8s
+spec:
+  ports:
+  - name: 80-8080
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: java-sample-k8s
+  type: ClusterIP
+status:
+  loadBalancer: {}

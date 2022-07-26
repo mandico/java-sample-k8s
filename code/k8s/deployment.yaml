@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: java-sample-k8s
+  name: java-sample-k8s
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: java-sample-k8s
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: java-sample-k8s
+    spec:
+      containers:
+      - image: luizmandico/java-sample-k8s:latest
+        name: java-sample-k8s
+        resources: {}
+status: {}
