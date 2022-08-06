@@ -6,12 +6,14 @@ public class AppInfo {
 	private String hostname;
 	private String os;
 	private String datetime;
+	private String version;
 
-	public AppInfo(String appname, String hostname, String os, String datetime) {
+	public AppInfo(String appname, String hostname, String os, String datetime, String version) {
 		this.appname = appname;
 		this.hostname = hostname;
 		this.os = os;
 		this.datetime = datetime;
+		this.version = version;
 	}
 
 	public String getappname() {
@@ -28,5 +30,9 @@ public class AppInfo {
 
 	public String getDatetime() {
 		return datetime;
+	}
+
+	public String getVersion() {
+		return version;
 	}
 }

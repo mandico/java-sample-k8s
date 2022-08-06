@@ -4,8 +4,10 @@ import java.net.InetAddress;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.info.BuildProperties;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,6 +16,9 @@ import com.example.javasamplek8s.model.AppInfo;
 @SpringBootApplication
 @RestController
 public class JavaSampleK8sApplication {
+	
+	@Autowired
+	BuildProperties buildProperties;
 
 	public static void main(String[] args) {
 		SpringApplication.run(JavaSampleK8sApplication.class, args);
@@ -43,6 +48,6 @@ public class JavaSampleK8sApplication {
 				hostName = "Unknow";
 			}
 		}
-		return new AppInfo("Sample Java Spring Boot App", hostName, os, formatter.format(date));
+		return new AppInfo("Sample Java Spring Boot App", hostName, os, formatter.format(date), buildProperties.getVersion());
 	}
 }

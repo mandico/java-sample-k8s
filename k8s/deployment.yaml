@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: java-sample-k8s
+  name: java-sample-k8s
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: java-sample-k8s
+  template:
+    metadata:
+      labels:
+        app: java-sample-k8s
+    spec:
+      containers:
+      - image: luizmandico/java-sample-k8s:latest
+        name: java-sample-k8s
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /actuator/health/liveness
+            port: 20000
+          initialDelaySeconds: 3
+          periodSeconds: 3
+        readinessProbe:
+          httpGet:
+            path: /actuator/health/readiness
+            port: 20000
+          initialDelaySeconds: 3
+          periodSeconds: 3

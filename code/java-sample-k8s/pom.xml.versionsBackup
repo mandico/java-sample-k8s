@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>java-sample-k8s</artifactId>
-	<version>1.1.1</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>java-sample-k8s</name>
 	<description>Java - Samples k8s</description>
 	<properties>
@@ -41,7 +41,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>${project.name}-${project.version}</finalName>
+		<finalName>${project.name}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
