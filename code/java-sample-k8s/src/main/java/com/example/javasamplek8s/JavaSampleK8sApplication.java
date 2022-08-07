@@ -24,10 +24,10 @@ public class JavaSampleK8sApplication {
 		SpringApplication.run(JavaSampleK8sApplication.class, args);
 	}
 	
-	@GetMapping("/")
-	public String home() {
-		return "Java Spring Boot Application is Up and Running";
-	}
+	//@GetMapping("/")
+	//public String home() {
+	//	return "Java Spring Boot Application is Up and Running";
+	//}
 	
 	@GetMapping("/info")
 	public AppInfo status() {

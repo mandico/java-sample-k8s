@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>java-sample-k8s</artifactId>
-	<version>1.1.1</version>
+	<version>2.0.0</version>
 	<name>java-sample-k8s</name>
 	<description>Java - Samples k8s</description>
 	<properties>
@@ -55,6 +55,45 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.6.0</version>
+				<executions>
+					<execution>
+						<id>Angular Build</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<executable>${basedir}/../../ci/00_build_angular.sh</executable>
+				</configuration>
+			</plugin>
+			<plugin>
+                <groupId>com.google.code.maven-replacer-plugin</groupId>
+                <artifactId>replacer</artifactId>
+                <version>1.5.3</version>
+                <executions>
+                    <execution>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>replace</goal>
+                        </goals>                    
+                    </execution>
+                </executions>
+                <configuration>      
+                    <file>${basedir}/src/main/resources/public/index.html</file>
+                    <replacements>
+                        <replacement>
+                            <token>%PROJECT_VERSION%</token>
+                            <value>${project.version}</value>
+                        </replacement>
+                    </replacements>
+                </configuration>
+            </plugin>
 		</plugins>
 	</build>
 

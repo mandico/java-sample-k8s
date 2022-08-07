@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 function print_headline() {
@@ -11,43 +12,6 @@ function print_headline() {
 
 function print_line() {
     echo "-------------------------------------------------------------------------------------------"
-}
-
-function maven_setversion() {
-    HEADLINE=$1
-    print_headline "Maven Set Version"
-    cd $SCRIPTPATH/../code/java-sample-k8s/
-    ./mvnw versions:set -DnewVersion=2.0.0
-    if [[ $? != 0 ]];
-    then
-        print_headline "Failed Maven Set Version"
-        exit 1;
-    fi;
-    print_headline "Success Maven Set Version"
-}
-
-function maven_clean() {
-    print_headline "Maven Clean Project"
-    cd $SCRIPTPATH/../code/java-sample-k8s/
-    ./mvnw clean
-    if [[ $? != 0 ]];
-    then
-        print_headline "Failed Maven Clean Project"
-        exit 1;
-    fi;
-    print_headline "Success Maven Clean Project"
-}
-
-function maven_install() {
-    print_headline "Maven Build Project"
-    cd $SCRIPTPATH/../code/java-sample-k8s/
-    ./mvnw install
-    if [[ $? != 0 ]];
-    then
-        print_headline "Failed Maven Build Project"
-        exit 1;
-    fi;
-    print_headline "Success Maven Build Project"
 }
 
 function build_angular() {
@@ -77,7 +41,4 @@ echo " Script...................:" $SCRIPT
 # Absolute path this script
 SCRIPTPATH=$(dirname "$SCRIPT")
 echo " Absolute Path............:" $SCRIPTPATH
-
-maven_setversion '2.0.0'
-maven_clean
-maven_install
+build_angular
