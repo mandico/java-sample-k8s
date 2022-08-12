@@ -6,10 +6,10 @@ metadata:
   name: java-sample-k8s
 spec:
   ports:
-  - name: 80-8080
-    port: 80
+  - name: 1234-1234
+    port: 1234
     protocol: TCP
-    targetPort: 20000
+    targetPort: 1234
   selector:
     app: java-sample-k8s
   type: ClusterIP
