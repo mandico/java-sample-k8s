@@ -1,7 +1,8 @@
+{{ if .Values.blue.enabled }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "blue-green.fullname" . }}
+  name: {{ include "blue-green.fullname" . }}-blue
   labels:
     {{- include "blue-green.labels" . | nindent 4 }}
 spec:
@@ -59,3 +60,4 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+{{- end }}

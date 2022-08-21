@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "blue-green.fullname" . }}
+  name: {{ include "blue-green.fullname" . }}-green
   labels:
     {{- include "blue-green.labels" . | nindent 4 }}
 spec:
@@ -13,3 +13,8 @@ spec:
       name: http
   selector:
     {{- include "blue-green.selectorLabels" . | nindent 4 }}
+    {{- if eq .Values.productionSlot "blue" }}
+    slot: green
+    {{- else }}
+    slot: blue
+    {{- end }}
