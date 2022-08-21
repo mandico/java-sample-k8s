@@ -16,7 +16,7 @@ function print_line() {
 function build_image() {
     print_headline "Build Image"
     cd $SCRIPTPATH/../
-    docker build . -t luizmandico/java-sample-k8s:latest
+    docker build . -t luizmandico/java-sample-k8s:2.0.0
  
     if [[ $? != 0 ]];
     then
