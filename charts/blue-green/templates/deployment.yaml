@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "blue-green.fullname" . }}-blue
+  name: {{ include "blue-green.fullname" . }}
   labels:
     {{- include "blue-green.labels" . | nindent 4 }}
 spec:
@@ -20,6 +20,7 @@ spec:
       {{- end }}
       labels:
         {{- include "blue-green.selectorLabels" . | nindent 8 }}
+        slot: blue
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:

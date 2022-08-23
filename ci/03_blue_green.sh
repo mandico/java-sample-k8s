@@ -10,7 +10,7 @@ deploymentOption=$newSlot.enabled=true
 helm upgrade yourReleaseName repo/blue-green --set $deploymentOption --reuse-values
 
 deploymentOption=productionSlot=$newSlot
-helm upgrade releasename repo/blue-green --set $deploymentOption --reuse-values
+helm upgrade yourreleasename repo/blue-green --set $deploymentOption --reuse-values
 
 deploymentOption=$oldSlot.enabled=false
 helm upgrade yourReleaseName repo/blue-green --set $deploymentOption --reuse-values

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: java-sample-k8s
+  name: java-sample-k8s-green
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: java-sample-k8s
+      slot: green
+  template:
+    metadata:
+      labels:
+        app: java-sample-k8s
+        slot: green
+    spec:
+      containers:
+      - image: luizmandico/java-sample-k8s:2.0.0
+        name: java-sample-k8s
+        ports:
+          - containerPort: 1234

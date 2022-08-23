@@ -1,7 +1,7 @@
-green:
-  enabled: false
-
 blue:
+  enabled: true
+
+green:
   enabled: false
 
 productionSlot: blue

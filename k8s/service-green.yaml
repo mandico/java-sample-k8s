@@ -3,7 +3,8 @@ kind: Service
 metadata:
   labels:
     app: java-sample-k8s
-  name: java-sample-k8s
+    slot: green
+  name: java-sample-k8s-green
 spec:
   ports:
   - name: 1234-1234
@@ -12,4 +13,5 @@ spec:
     targetPort: 1234
   selector:
     app: java-sample-k8s
+    slot: green
   type: ClusterIP

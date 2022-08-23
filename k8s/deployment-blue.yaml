@@ -3,19 +3,21 @@ kind: Deployment
 metadata:
   labels:
     app: java-sample-k8s
-  name: java-sample-k8s
+  name: java-sample-k8s-blue
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: java-sample-k8s
+      slot: blue
   template:
     metadata:
       labels:
         app: java-sample-k8s
+        slot: blue
     spec:
       containers:
-      - image: luizmandico/java-sample-k8s:latest
+      - image: luizmandico/java-sample-k8s:1.0.0
         name: java-sample-k8s
         ports:
           - containerPort: 1234
